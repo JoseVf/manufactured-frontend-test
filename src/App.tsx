@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Routes, Route } from 'react-router-dom';
+
+import Identification from './components/Identification/Identification';
+import Homepage from './components/Homepage/Homepage';
+import SignUp from './components/SignUp/SignUp';
+import SignIn from './components/SignIn/SignIn';
+
+import 'rsuite/dist/rsuite.min.css';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      cacheTime: 1000 * 60 * 60 * 24,
+    },
+  },
+});
+
+const App = () => (
+  <div className='root-container center'>
+    <QueryClientProvider client={queryClient}>
+      <Routes>
+        <Route path="/" element={<Identification />} />
+        <Route path="/home" element={<Homepage />} />
+        <Route path="/auth/sign-up" element={<SignUp />} />
+        <Route path="/signIn" element={<SignIn />} />
+      </Routes>
+    </QueryClientProvider>
+  </div>
+);
 
 export default App;

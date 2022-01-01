@@ -1,0 +1,16 @@
+mutation SignUp ($input: SignUpInput!) {
+  signUp(input: $input) {
+    email,
+    firstName,
+    lastName,
+    token,
+    createdAt,
+    memberships {
+      role,
+      org {
+        name,
+        kind,
+      },
+    },
+  }
+}

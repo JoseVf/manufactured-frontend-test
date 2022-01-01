@@ -1,0 +1,5 @@
+mutation RequestSignUp($email: Email!) {
+    requestSignUp(email: $email) {
+        error
+    }
+}
