@@ -1221,7 +1221,7 @@ export enum WorkflowStatus {
 export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MeQuery = { __typename?: 'Query', me?: { __typename?: 'User', email?: any | null | undefined, firstName: any, lastName?: any | null | undefined, createdAt: any, token: any, memberships: Array<{ __typename?: 'Membership', role: UserRole, org: { __typename?: 'Organization', name: any, kind: OrganizationKind } }> } | null | undefined };
+export type MeQuery = { __typename?: 'Query', me?: { __typename?: 'User', email?: any | null | undefined, firstName: any, lastName?: any | null | undefined, createdAt: any, token: any, memberships: Array<{ __typename?: 'Membership', role: UserRole, org: { __typename?: 'Organization', name: any, kind: OrganizationKind, createdAt: any } }> } | null | undefined };
 
 export type RequestSignUpMutationVariables = Exact<{
   email: Scalars['Email'];
@@ -1258,6 +1258,7 @@ export const MeDocument = `
       org {
         name
         kind
+        createdAt
       }
     }
   }

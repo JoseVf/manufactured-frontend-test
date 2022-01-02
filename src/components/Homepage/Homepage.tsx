@@ -38,12 +38,13 @@ const Homepage = () => {
           <Card panelClassName='home__membership-card' key={`${membership?.role}${index}`}>
             <h4>{membership?.role}</h4>
             <p>{membership?.org?.name}, {membership?.org?.kind}</p>
+            <span className='home__secondary-text'>Created at: {formatDate(membership?.org?.createdAt)}</span>
           </Card>
         )}
       </div>
       <Button className='button' color='red' appearance="primary" onClick={logOut}>
-          Log Out
-        </Button>
+        Log Out
+      </Button>
     </Card>
   )
 }

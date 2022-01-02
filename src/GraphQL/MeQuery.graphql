@@ -10,6 +10,7 @@ query Me {
       org {
         name,
         kind,
+        createdAt,
       },
     },
   }
